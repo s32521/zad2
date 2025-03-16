@@ -5,8 +5,7 @@ public class Main {
         int znizkawiek = 0;
         if (wiek < 10) {
             znizkawiek = 100;
-        }
-        if (wiek >= 10 && wiek <= 18) {
+        } else if (wiek <= 18) {
             znizkawiek = 50;
         } else {
             znizkawiek = 0;
@@ -40,10 +39,14 @@ public class Main {
         System.out.println("Podaj dzień tygodnia:");
         String dzien = sc.next();
 
-
         int cala = znizkawiek(wiek) + znizkamiasto(miasto)+ znizkadzien(dzien);
 
-        int nowa = cenar * (100 - cala) / 100;
+        int nowa=0;
+        if(cala >=100) {
+            cala=100;
+        }else {
+            nowa = cenar * (100 - cala) / 100;
+        }
         System.out.println(miasto + "," + wiek + " " + "lat" + "," + dzien);
         System.out.println("Zniżka: " + cala + "%");
         System.out.println("Cena biletu: " + nowa);
